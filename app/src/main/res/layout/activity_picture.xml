@@ -7,5 +7,7 @@
         android:id="@+id/picture"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:transitionName="1"
         android:layout_centerInParent="true"/>
 </RelativeLayout>

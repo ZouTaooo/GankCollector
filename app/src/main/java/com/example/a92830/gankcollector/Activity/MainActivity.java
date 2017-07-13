@@ -1,4 +1,4 @@
-package com.example.a92830.gankcollector;
+package com.example.a92830.gankcollector.Activity;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.a92830.gankcollector.Adapter.MyFragmentPagerAdapter;
+import com.example.a92830.gankcollector.R;
 import com.example.a92830.gankcollector.fragment.AndroidFragment;
 import com.example.a92830.gankcollector.fragment.IosFragment;
 import com.example.a92830.gankcollector.fragment.MeiziFragment;

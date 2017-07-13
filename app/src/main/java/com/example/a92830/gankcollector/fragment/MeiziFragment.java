@@ -45,6 +45,13 @@ public class MeiziFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_meizi, container, false);
+        SetupFloatingActionButton();
+        SetupRecyclerView();
+        CheckDatabase();
+        return view;
+    }
+
+    public void SetupFloatingActionButton() {
         fab= view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,13 +59,15 @@ public class MeiziFragment extends Fragment {
                 mPullLoadMoreRecyclerView.scrollToTop();
             }
         });
+    }
+
+    public void SetupRecyclerView() {
         mPullLoadMoreRecyclerView = view.findViewById(R.id.pullLoadMoreRecyclerView);
         meiziList = DataSupport.findAll(Meizi.class);
         meiziAdapter = new MeiziAdapter(meiziList);
         mPullLoadMoreRecyclerView.setAdapter(meiziAdapter);
         mPullLoadMoreRecyclerView.setStaggeredGridLayout(2);//参数为列
         mPullLoadMoreRecyclerView.setPullRefreshEnable(false);
-        CheckDatabase();
         mPullLoadMoreRecyclerView.setOnPullLoadMoreListener(new PullLoadMoreRecyclerView.PullLoadMoreListener() {
             @Override
             public void onRefresh() {
@@ -68,7 +77,6 @@ public class MeiziFragment extends Fragment {
                 LoadImageFromInternet();
             }
         });
-        return view;
     }
 
     public void LoadImageFromInternet() {
