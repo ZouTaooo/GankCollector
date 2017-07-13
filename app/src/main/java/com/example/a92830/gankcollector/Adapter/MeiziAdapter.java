@@ -1,15 +1,15 @@
-package com.example.a92830.gankcollector;
+package com.example.a92830.gankcollector.Adapter;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
+import com.example.a92830.gankcollector.config.MyApplication;
+import com.example.a92830.gankcollector.R;
 import com.example.a92830.gankcollector.db.Meizi;
 
 import java.util.List;
@@ -18,6 +18,7 @@ import java.util.List;
 public class MeiziAdapter extends RecyclerView.Adapter<MeiziAdapter.ViewHolder> {
     List<Meizi> urls;
     private static final String TAG = "MeiziAdapter";
+
     public MeiziAdapter(List<Meizi> urls) {
         this.urls = urls;
     }
@@ -29,7 +30,6 @@ public class MeiziAdapter extends RecyclerView.Adapter<MeiziAdapter.ViewHolder> 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //查看大图
             }
         });
         return new ViewHolder(view);
@@ -38,7 +38,7 @@ public class MeiziAdapter extends RecyclerView.Adapter<MeiziAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         String url = urls.get(position).getUrl();
-        Glide.with(MyApplication.getContext()).load(url).into(holder.imageView);
+        Glide.with(MyApplication.getContext()).load(url).crossFade().placeholder(R.drawable.placeholder).into(holder.imageView);
     }
 
     @Override
@@ -49,6 +49,7 @@ public class MeiziAdapter extends RecyclerView.Adapter<MeiziAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         CardView cardView;
+
         public ViewHolder(View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.card_view);

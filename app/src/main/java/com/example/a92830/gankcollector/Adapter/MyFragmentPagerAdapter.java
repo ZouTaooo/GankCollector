@@ -1,4 +1,4 @@
-package com.example.a92830.gankcollector;
+package com.example.a92830.gankcollector.Adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

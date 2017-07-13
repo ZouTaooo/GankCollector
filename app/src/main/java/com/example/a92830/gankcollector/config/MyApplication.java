@@ -1,4 +1,4 @@
-package com.example.a92830.gankcollector;
+package com.example.a92830.gankcollector.config;
 
 import android.app.Application;
 import android.content.Context;

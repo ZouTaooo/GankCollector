@@ -1,18 +1,13 @@
 package com.example.a92830.gankcollector.Util;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.example.a92830.gankcollector.Gson.MeiziImage;
 import com.example.a92830.gankcollector.db.Meizi;
+import com.example.a92830.gankcollector.fragment.MeiziFragment;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,6 +16,7 @@ import java.util.List;
 
 public class Utility {
     private static final String TAG = "Utility";
+    private static List<Meizi> list = new ArrayList<>();
 
     public static void handleMeiziResponse(String respnse) {
         if (!TextUtils.isEmpty(respnse)) {
@@ -31,6 +27,7 @@ public class Utility {
                     Meizi meizi = new Meizi();
                     meizi.setUrl(result.getUrl());
                     meizi.save();
+                    MeiziFragment.meiziList.add(meizi);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
